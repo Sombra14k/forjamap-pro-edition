@@ -1,0 +1,10 @@
+{
+  "name": "forjamap-pro",
+  "version": "3.1.0",
+  "description": "ForjaMap - Editor de mapas de batalha para RPG (Pro Edition). Sem dependências: abre direto no navegador.",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx --yes http-server . -p 5173 -c-1 -o"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ForjaMap Pro - Battlemap Studio</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <header id="topbar">
+    <div class="brand"><span class="logo" data-ic="wall" data-s="20"></span><b>ForjaMap</b><i class="badge">PRO</i></div>
+    <input id="projName" class="proj-name" type="text" spellcheck="false" title="Nome do mapa">
+    <div class="grp">
+      <button class="btn icon-only" id="btnNew" title="Novo mapa" data-ic="file"></button>
+      <button class="btn" id="btnLoad" title="Abrir projeto (.json)" data-ic="folder" data-t="Abrir"></button>
+      <button class="btn" id="btnSave" title="Salvar projeto (Ctrl+S)" data-ic="save" data-t="Salvar"></button>
+      <input type="file" id="fileProj" accept=".json,application/json" hidden>
+    </div>
+    <div class="grp">
+      <button class="btn icon-only" id="btnUndo" title="Desfazer (Ctrl+Z)" data-ic="undo"></button>
+      <button class="btn icon-only" id="btnRedo" title="Refazer (Ctrl+Y)" data-ic="redo"></button>
+    </div>
+    <div class="grp">
+      <button class="btn" id="btnGrid" title="Mostrar/ocultar grade (G)" data-ic="grid" data-t="Grade"></button>
+      <label class="o sm"><span>Snap</span><select id="snapSel"><option value="cell">Célula</option><option value="half">Meia célula</option><option value="off">Livre</option></select></label>
+    </div>
+    <span class="grow"></span>
+    <div class="grp">
+      <button class="btn small" id="btnMini" title="Mostrar/ocultar minimapa" data-ic="map" data-s="15"></button>
+      <button class="btn small" id="btnHelp" title="Atalhos e dicas (?)" data-ic="help" data-s="15"></button>
+    </div>
+    <div class="grp zoom">
+      <button class="btn icon-only" id="zoomOut" title="Diminuir zoom (-)">−</button>
+      <button class="btn small" id="zoomVal" title="Voltar a 100%">100%</button>
+      <button class="btn icon-only" id="zoomIn" title="Aumentar zoom (+)">+</button>
+      <button class="btn icon-only" id="zoomFit" title="Ajustar mapa à tela (0)" data-ic="fit"></button>
+    </div>
+    <button class="btn primary" id="btnExport" data-ic="download" data-t="Exportar"></button>
+  </header>
+
+  <div id="body">
+    <aside id="left" class="panel">
+      <div class="panel-h"><h3>Biblioteca</h3><div class="grp"><button class="btn small" id="btnImport" title="Importar suas imagens" data-ic="upload" data-s="15" data-t="Importar"></button></div></div>
+      <input id="libSearch" class="search" type="search" placeholder="Buscar assets…">
+      <div id="libTabs" class="tabs"></div>
+      <div id="assetGrid" class="asset-grid scroll"></div>
+      <div id="catActions" class="cat-actions"></div>
+      <div class="lib-foot">
+        <button class="btn small" id="btnPackIn" data-ic="pack" data-s="15" data-t="Importar pacote"></button>
+        <button class="btn small" id="btnPackOut" data-ic="pack" data-s="15" data-t="Exportar meus assets"></button>
+      </div>
+      <input type="file" id="fileImg" accept="image/*" multiple hidden>
+      <input type="file" id="filePack" accept=".json,application/json" hidden>
+      <div class="drop-hint">Solte imagens aqui para importar</div>
+    </aside>
+
+    <main id="center">
+      <div id="optionsBar"></div>
+      <div id="stageWrap">
+        <nav id="toolRail"></nav>
+        <canvas id="cv" tabindex="0"></canvas>
+        <canvas id="mini" title="Minimapa: clique para navegar"></canvas>
+      </div>
+      <footer id="status"><span id="stCoord">Célula 0, 0</span><span id="stSel"></span><span class="grow"></span><span id="stMap"></span><span id="stLayer"></span></footer>
+    </main>
+
+    <aside id="right" class="panel scroll">
+      <div class="panel-h"><h3>Camadas</h3></div>
+      <div id="layers" class="layers"></div>
+      <div id="layerFoot" class="sec"></div>
+      <div class="panel-h"><h3>Propriedades</h3></div>
+      <div id="props"></div>
+    </aside>
+  </div>
+</div>
+<div id="toasts"></div>
+<script src="js/icons.js"></script>
+<script src="js/assets.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/tools.js"></script>
+<script src="js/export.js"></script>
+<script src="js/templates.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>
